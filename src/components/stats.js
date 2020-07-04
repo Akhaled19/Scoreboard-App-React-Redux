@@ -22,6 +22,7 @@ const Stats = props => {
     )
 }
   
-Stats.propTypes = {
-    players: PropTypes.array.isRequired,
-};
+// Stats.propTypes = {
+//     players: PropTypes.array.isRequired,
+// };
+export default Stats;

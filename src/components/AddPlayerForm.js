@@ -33,8 +33,8 @@ class AddPlayerForm extends Component {
     }
 }
 
-AddPlayerForm.PropTypes = {
-    onAdd: PropTypes.func.isRequired
-};
+// AddPlayerForm.PropTypes = {
+//     onAdd: PropTypes.func.isRequired
+// };
 
 export default AddPlayerForm;

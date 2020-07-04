@@ -16,11 +16,11 @@ const Player = props => {
     );
 }
   
-  Player.propTypes = {
-    name: PropTypes.string.isRequired,
-    score: PropTypes.number.isRequired,
-    onRemove: PropTypes.func.isRequired,
-    onScoreChange: PropTypes.func.isRequired,
-  };
+  // Player.propTypes = {
+  //   name: PropTypes.string.isRequired,
+  //   score: PropTypes.number.isRequired,
+  //   onRemove: PropTypes.func.isRequired,
+  //   onScoreChange: PropTypes.func.isRequired,
+  // };
 
   export default Player;
