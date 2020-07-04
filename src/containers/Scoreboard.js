@@ -1,7 +1,4 @@
-import React, {Component, Fragment} from 'react';
-import Stopwatch from '../components/Stopwatch';
-import Stats from '../components/stats';
-import Counter from '../components/Counter';
+import React, {Component} from 'react';
 import AddPlayerForm from '../components/AddPlayerForm';
 import Player from '../components/Player';
 import Header from '../components/Header';
