@@ -40,6 +40,8 @@ export default function Player(state=intialStae, action ) {
                 }
                 return player;
             });  
+        default:
+            return state;    
     }   
 
 } 
