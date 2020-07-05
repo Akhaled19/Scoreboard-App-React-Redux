@@ -43,5 +43,4 @@ export default function Player(state=intialStae, action ) {
         default:
             return state;    
     }   
-
 } 
