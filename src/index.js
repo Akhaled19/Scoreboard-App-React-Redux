@@ -1,12 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux'
 import './index.css';
 import Scoreboard from './containers/Scoreboard';
 import * as serviceWorker from './serviceWorker';
+import PlayerReducer from './reducers/player';
+
+const store = createStore(
+  PlayerReducer
+);
 
 ReactDOM.render(
   <React.StrictMode>
-    <Scoreboard />
+    <Provider store={store}>
+      <Scoreboard />
+    </Provider> 
   </React.StrictMode>,
   document.getElementById('root')
 );
