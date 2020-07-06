@@ -8,7 +8,8 @@ import * as serviceWorker from './serviceWorker';
 import PlayerReducer from './reducers/player';
 
 const store = createStore(
-  PlayerReducer
+  PlayerReducer,
+  window.devToolsExtension && window.devToolsExtension()
 );
 
 ReactDOM.render(
