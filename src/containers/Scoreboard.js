@@ -10,12 +10,12 @@ import Header from '../components/Header';
 class Scoreboard extends Component {
 
   render() {
-    const {dispatch, players} = this.props;
+    const { dispatch, players } = this.props;
     const addPlayer = bindActionCreators(PlayerActionCreators.addPlayer, dispatch);
     const removePlayer = bindActionCreators(PlayerActionCreators.removePlayer, dispatch);
-    const updatePlayerScore = bindActionCreators(PlayerActionCreators.updatePlayer, dispatch);
+    const updatePlayerScore = bindActionCreators(PlayerActionCreators.updatePlayerScore, dispatch);
     
-    const playerComponent = players.map((player, index) => (
+    const playerComponents = players.map((player, index) => (
       <Player 
         index={index}
         name={player.name} 
@@ -29,7 +29,7 @@ class Scoreboard extends Component {
       <div className="scoreboard">
         <Header players={players} />
         <div className="players">
-          { playerComponent }
+          { playerComponents }
         </div>
         <AddPlayerForm addPlayer={addPlayer} />
       </div>
