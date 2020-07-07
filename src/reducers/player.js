@@ -25,39 +25,60 @@ const intialStae = {
 };
 
 export default function Player(state=intialStae, action ) {
+    let date = new Date();
+    let day = date.getDate();
+    let month = date.getMonth()+1;
+    let year = date.getFullYear();
+
     switch(action.type) {
-        case PlayerActionTypes.ADD_PLAYER:
-            return [
+        case PlayerActionTypes.ADD_PLAYER: {
+            const addPlayerList = [...state.players, {  
+                name: action.name,
+                score: 0,
+                created: `${month}/${day}/${year}`
+                
+            }];
+            return {
                 ...state,
-                {
-                    name: action.name,
-                    score: 0,
-                    created: Date.now()
-                }
+                players:addPlayerList
+            };
+        }
+
+        case PlayerActionTypes.REMOVE_PLAYER: {
+            const removePlayerList = [
+                ...state.players.slice(0, action.index),
+                ...state.players.slice(action.index + 1) 
             ];
-        case PlayerActionTypes.REMOVE_PLAYER:
-            return [
-                ...state.slice(0, action.index),
-                ...state.slice(action.index + 1) 
-            ]; 
-        case PlayerActionTypes.UPDATE_PLAYER_SCORE:
-            return state.map((player, index) => {
+            return {
+               ...state,
+               players: removePlayerList
+            };
+        } 
+
+        case PlayerActionTypes.UPDATE_PLAYER_SCORE: {
+            const updatePlayerList = state.players.map((player, index) => {
                 if(index === action.index) {
                     return {
                         ...player,
                         score: player.score + action.score,
-                        updated: Date.now()
-                    }
+                        updated: `${month}/${day}/${year}`
+                    };
                 }
-                return player;
-            }); 
-        case PlayerActionTypes.SELECT_PLAYER:
-            return [
+                return player    
+            });
+            return {
                 ...state,
-                {
+                players:updatePlayerList
+            };
+        }
+           
+        case PlayerActionTypes.SELECT_PLAYER:
+            return {
+                ...state,
                 selectedPlayerIndex: action.index
-                }
-            ]     
+                
+            };
+
         default:
             return state;    
     }   
