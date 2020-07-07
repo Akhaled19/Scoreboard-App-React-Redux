@@ -31,7 +31,8 @@ export default function Player(state=intialStae, action ) {
                 ...state,
                 {
                     name: action.name,
-                    score: 0
+                    score: 0,
+                    created: Date.now()
                 }
             ];
         case PlayerActionTypes.REMOVE_PLAYER:
@@ -44,11 +45,19 @@ export default function Player(state=intialStae, action ) {
                 if(index === action.index) {
                     return {
                         ...player,
-                        score: player.score + action.score
+                        score: player.score + action.score,
+                        updated: Date.now()
                     }
                 }
                 return player;
-            });  
+            }); 
+        case PlayerActionTypes.SELECT_PLAYER:
+            return [
+                ...state,
+                {
+                selectedPlayerIndex: action.index
+                }
+            ]     
         default:
             return state;    
     }   
