@@ -19,7 +19,7 @@ const intialStae = {
             score: 50,
             created: '7/6/2020',
             updated: '7/7/2020'
-        },
+        }
     ],
     selectedPlayerIndex: -1
 };
@@ -64,11 +64,11 @@ export default function Player(state=intialStae, action ) {
                         updated: `${month}/${day}/${year}`
                     };
                 }
-                return player    
+                return player;    
             });
             return {
                 ...state,
-                players:updatePlayerList
+                players: updatePlayerList
             };
         }
            
