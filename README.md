@@ -18,9 +18,9 @@ Redux is excellent because:
 You can use Redux together with **React**, or any other view library. It is tiny (2kB, including dependencies). 
 
 ## How Redux Works
-Redux stores all your applcation state in an object tree within a single `store`. Components then `dispatch` state `actions` to the store, instead of mutating the state object directly. Action is an object with a type property - where the type property is a string that indicates the type of action being preformed. To specify how the `actions` transform the state, you write pure `reducers` to decide how every action transforms the entire application's state. Pure reducers are pure functions that take the previous state and an action as inputs and return the next state. The components that need to be aware of state `actions` can `subscribe` to the `store`.   
+Redux stores all your applcation state in an object tree within a single `store`. Components then `dispatch` state `actions` to the store, instead of mutating the state object directly. Action is an object with a type property - where the type property is a string that indicates the type of action being preformed. To specify how the `actions` transform the state, you write pure `reducers` to decide how every action transforms the entire application's state. Pure reducers are pure functions that takes two arguments the previous state and an action as inputs and return the next state. The components that need to be aware of state `actions` can `subscribe` to the `store`.   
 
-Redux Action at a Galance
+## Redux Action at a Galance
 ```
 const BUY_CAKE = 'BUY_CAKE';
 
@@ -28,7 +28,34 @@ const BUY_CAKE = 'BUY_CAKE';
   type: BUY_CAKE
 }
 ```
-Redux Action Creator at a Glance
+## Redux Action Creator at a Glance
+```
+function buyCake() {
+  return {
+    type: BUY_CAKE,
+    info: 'First redux action'
+  }
+}
+```
+
+## Redux Reducer at a Glance
+
+```
+const initialState = {
+  numOfCakes: 10;
+}
+
+const reducer = (state = initialState, action) => {
+  switch(action.type) {
+    case(BUY_CAKE): return {
+      ...state,
+      numOfCakes: state.numOfCakes - 1
+    }
+    default: return state;
+  }
+}
+```
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
