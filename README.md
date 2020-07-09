@@ -55,7 +55,25 @@ const reducer = (state = initialState, action) => {
   }
 }
 ```
+## Redux Store and its methods at a Glance:
 
+```
+//Application state container for the entire application
+const store = createStore(reducer);
+
+//print the current state in the store
+console.log('initial state', store.getState());
+
+//Allow the app to subscribe to changes
+const unsubscribe = store.subscribe(() => console.log('update state', store.getState());
+
+//Update the state 
+store.dispatch(buyCake());
+
+//unsubscribe from the store by calling the function returned by subscribe() method
+unsubscribe()
+
+```
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
